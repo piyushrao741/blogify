@@ -1,0 +1,25 @@
+{
+  "name": "blogify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start": "node src/index.js",
+  "dev": "nodemon src/index.js"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piyushrao741/blogify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/piyushrao741/blogify/issues"
+  },
+  "homepage": "https://github.com/piyushrao741/blogify#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
