@@ -1,10 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-// import controller
-const { getAllPosts } = require('../controllers/posts.controller');
+const postController = require("../controllers/posts.controller");
 
-// GET /api/v1/posts
-router.get('/', getAllPosts);
+// IMPORTANT: Static routes first
+router.get("/", postController.getAllPosts);
+
+// Dynamic route
+router.get("/:postId", postController.getPostById);
 
 module.exports = router;
