@@ -1,18 +1,51 @@
 // GET all posts
 const getAllPosts = async (req, res) => {
-  res.json({
-    message: "Fetching all posts",
-  });
+  try {
+    const posts = await Post.find();
+
+    res.status(200).json({
+      success: true,
+      data: {
+        posts
+      }
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch posts"
+    });
+  }
 };
+
 
 // GET single post by ID
 const getPostById = async (req, res) => {
-  const postId = req.params.postId;
+  try {
+    const post = await Post.findById(req.params.id);
 
-  res.json({
-    message: "Fetching data for post with ID: " + postId,
-  });
+    if (!post) {
+      return res.status(404).json({
+        success: false,
+        message: "Post not found"
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: {
+        post
+      }
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch post"
+    });
+  }
 };
+
 
 module.exports = {
   getAllPosts,
